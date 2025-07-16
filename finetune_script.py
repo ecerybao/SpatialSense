@@ -20,7 +20,49 @@ import json
 def load_config(config_path: str) -> dict:
     """Load configuration file"""
     with open(config_path, 'r', encoding='utf-8') as f:
-        return yaml.safe_load(f)
+        config = yaml.safe_load(f)
+    
+    # 确保数值类型参数是正确的类型
+    training_config = config.get("training", {})
+    
+    # 转换数值类型参数
+    numeric_params = {
+        'learning_rate': float,
+        'weight_decay': float,
+        'num_train_epochs': int,
+        'per_device_train_batch_size': int,
+        'per_device_eval_batch_size': int,
+        'gradient_accumulation_steps': int,
+        'warmup_steps': int,
+        'save_steps': int,
+        'eval_steps': int,
+        'save_total_limit': int,
+        'logging_steps': int
+    }
+    
+    for param, param_type in numeric_params.items():
+        if param in training_config:
+            training_config[param] = param_type(training_config[param])
+    
+    # 转换布尔类型参数
+    bool_params = ['remove_unused_columns', 'dataloader_pin_memory', 'bf16', 'gradient_checkpointing']
+    for param in bool_params:
+        if param in training_config:
+            training_config[param] = bool(training_config[param])
+    
+    # 转换LoRA参数
+    if "lora" in config:
+        lora_config = config["lora"]
+        lora_numeric_params = {
+            'r': int,
+            'lora_alpha': int,
+            'lora_dropout': float
+        }
+        for param, param_type in lora_numeric_params.items():
+            if param in lora_config:
+                lora_config[param] = param_type(lora_config[param])
+    
+    return config
 
 def load_jsonl_data(file_path: str) -> list:
     """Load JSONL data"""
@@ -158,15 +200,30 @@ def main():
         greater_is_better=False,
     )
     
-    # Trainer
-    trainer = Trainer(
-        model=model,
-        args=training_args,
-        train_dataset=train_dataset,
-        eval_dataset=val_dataset,
-        data_collator=data_collator,
-        tokenizer=tokenizer,
-    )
+    # Trainer (版本兼容性处理)
+    import transformers
+    transformers_version = tuple(map(int, transformers.__version__.split('.')[:2]))
+    
+    if transformers_version >= (4, 40):
+        # 新版本使用 processing_class
+        trainer = Trainer(
+            model=model,
+            args=training_args,
+            train_dataset=train_dataset,
+            eval_dataset=val_dataset,
+            data_collator=data_collator,
+            processing_class=tokenizer,
+        )
+    else:
+        # 旧版本使用 tokenizer
+        trainer = Trainer(
+            model=model,
+            args=training_args,
+            train_dataset=train_dataset,
+            eval_dataset=val_dataset,
+            data_collator=data_collator,
+            tokenizer=tokenizer,
+        )
     
     # Start training
     print("Starting training...")
