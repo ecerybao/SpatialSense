@@ -1,0 +1,170 @@
+{
+  "total": 20,
+  "successful": 20,
+  "failed": 0,
+  "correct": 10,
+  "incorrect": 10,
+  "details": [
+    {
+      "index": 0,
+      "input": "Line A: [(-27.6, 35.7), (14.8, 2.9)];  Line B: [(-14.9, 25.9), (-2.2, 16.0)].  What is their spatial relation?",
+      "expected": "Contains",
+      "actual": "Crosses",
+      "success": true,
+      "correct": false
+    },
+    {
+      "index": 1,
+      "input": "Line A: [(6.3, 0.4), (-9.4, 46.9)];  Line B: [(3.2, 9.7), (-4.7, 32.9)].  What is their spatial relation?",
+      "expected": "Contains",
+      "actual": "Crosses",
+      "success": true,
+      "correct": false
+    },
+    {
+      "index": 2,
+      "input": "Line A: [(-22.8, 32.7), (20.5, -4.3)];  Line B: [(0.7, 56.5), (44.0, 19.5)].  What is their spatial relation?",
+      "expected": "Disjoint",
+      "actual": "Disjoint",
+      "success": true,
+      "correct": true
+    },
+    {
+      "index": 3,
+      "input": "Line A: [(13.2, 0.1), (23.2, 15.4)];  Line B: [(15.2, 3.2), (28.7, 23.8)].  What is their spatial relation?",
+      "expected": "Overlaps",
+      "actual": "Disjoint",
+      "success": true,
+      "correct": false
+    },
+    {
+      "index": 4,
+      "input": "Line A: [(-21.9, -18.7), (5.7, -31.5)];  Line B: [(-21.9, -18.7), (5.7, -31.5)].  What is their spatial relation?",
+      "expected": "Equals",
+      "actual": "Equals",
+      "success": true,
+      "correct": true
+    },
+    {
+      "index": 5,
+      "input": "Line A: [(36.5, 8.6), (20.9, -35.7)];  Line B: [(57.2, 33.0), (41.6, -11.3)].  What is their spatial relation?",
+      "expected": "Disjoint",
+      "actual": "Disjoint",
+      "success": true,
+      "correct": true
+    },
+    {
+      "index": 6,
+      "input": "Line A: [(-33.2, 15.0), (36.3, -35.3)];  Line B: [(-12.4, -0.1), (22.4, -25.2)].  What is their spatial relation?",
+      "expected": "Contains",
+      "actual": "Crosses",
+      "success": true,
+      "correct": false
+    },
+    {
+      "index": 7,
+      "input": "Line A: [(-24.7, 20.7), (5.4, -11.7)];  Line B: [(-0.8, 50.4), (29.3, 18.0)].  What is their spatial relation?",
+      "expected": "Disjoint",
+      "actual": "Disjoint",
+      "success": true,
+      "correct": true
+    },
+    {
+      "index": 8,
+      "input": "Line A: [(24.1, -10.0), (-27.4, 50.0)];  Line B: [(13.8, 2.0), (-58.3, 86.0)].  What is their spatial relation?",
+      "expected": "Overlaps",
+      "actual": "Touches",
+      "success": true,
+      "correct": false
+    },
+    {
+      "index": 9,
+      "input": "Line A: [(-11.4, 47.8), (-37.9, 44.3)];  Line B: [(-11.4, 47.8), (-37.9, 44.3)].  What is their spatial relation?",
+      "expected": "Equals",
+      "actual": "Equals",
+      "success": true,
+      "correct": true
+    },
+    {
+      "index": 10,
+      "input": "Line A: [(-22.2, -36.4), (-34.8, 14.8)];  Line B: [(-42.8, -14.3), (-14.2, -7.3)].  What is their spatial relation?",
+      "expected": "Crosses",
+      "actual": "Crosses",
+      "success": true,
+      "correct": true
+    },
+    {
+      "index": 11,
+      "input": "Line A: [(-0.9, 6.9), (-16.5, 26.8)];  Line B: [(-0.9, 6.9), (-8.4, 1.0)].  What is their spatial relation?",
+      "expected": "Disjoint",
+      "actual": "Touches",
+      "success": true,
+      "correct": false
+    },
+    {
+      "index": 12,
+      "input": "Line A: [(-22.0, 43.2), (2.4, -38.5)];  Line B: [(-22.0, 43.2), (2.4, -38.5)].  What is their spatial relation?",
+      "expected": "Equals",
+      "actual": "Equals",
+      "success": true,
+      "correct": true
+    },
+    {
+      "index": 13,
+      "input": "Line A: [(16.0, 11.0), (-19.8, -14.3)];  Line B: [(8.8, 5.9), (-9.1, -6.7)].  What is their spatial relation?",
+      "expected": "Contains",
+      "actual": "Crosses",
+      "success": true,
+      "correct": false
+    },
+    {
+      "index": 14,
+      "input": "Line A: [(-30.0, 2.3), (-41.3, -24.0)];  Line B: [(-33.4, -5.6), (-39.0, -18.7)].  What is their spatial relation?",
+      "expected": "Contains",
+      "actual": "Crosses",
+      "success": true,
+      "correct": false
+    },
+    {
+      "index": 15,
+      "input": "Line A: [(-3.7, -21.7), (11.0, -36.8)];  Line B: [(16.9, 4.9), (31.6, -10.2)].  What is their spatial relation?",
+      "expected": "Disjoint",
+      "actual": "Disjoint",
+      "success": true,
+      "correct": true
+    },
+    {
+      "index": 16,
+      "input": "Line A: [(-20.8, -46.9), (10.3, -20.8)];  Line B: [(-13.7, -23.8), (3.3, -44.0)].  What is their spatial relation?",
+      "expected": "Crosses",
+      "actual": "Crosses",
+      "success": true,
+      "correct": true
+    },
+    {
+      "index": 17,
+      "input": "Line A: [(-40.2, 32.9), (-11.1, 27.5)];  Line B: [(-40.2, 32.9), (-11.1, 27.5)].  What is their spatial relation?",
+      "expected": "Equals",
+      "actual": "Equals",
+      "success": true,
+      "correct": true
+    },
+    {
+      "index": 18,
+      "input": "Line A: [(25.5, 27.4), (19.4, 41.3)];  Line B: [(27.9, 21.9), (15.7, 49.6)].  What is their spatial relation?",
+      "expected": "Within",
+      "actual": "Disjoint",
+      "success": true,
+      "correct": false
+    },
+    {
+      "index": 19,
+      "input": "Line A: [(-21.7, -11.2), (-36.1, 20.7)];  Line B: [(-10.9, -35.2), (-46.9, 44.7)].  What is their spatial relation?",
+      "expected": "Within",
+      "actual": "Crosses",
+      "success": true,
+      "correct": false
+    }
+  ],
+  "accuracy": 0.5
+}

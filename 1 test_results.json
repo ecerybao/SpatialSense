@@ -1,0 +1,170 @@
+{
+  "total": 20,
+  "successful": 20,
+  "failed": 0,
+  "correct": 20,
+  "incorrect": 0,
+  "details": [
+    {
+      "index": 0,
+      "input": "Point A is at (-53, 25). Point B is at (23, -92). What is the spatial relation between Point A and Point B?",
+      "expected": "Disjoint",
+      "actual": "Disjoint",
+      "success": true,
+      "correct": true
+    },
+    {
+      "index": 1,
+      "input": "Point A is at (59, -100). Point B is at (59, -100). What is the spatial relation between Point A and Point B?",
+      "expected": "Equals",
+      "actual": "Equals",
+      "success": true,
+      "correct": true
+    },
+    {
+      "index": 2,
+      "input": "Point A is at (55, 91). Point B is at (55, 91). What is the spatial relation between Point A and Point B?",
+      "expected": "Equals",
+      "actual": "Equals",
+      "success": true,
+      "correct": true
+    },
+    {
+      "index": 3,
+      "input": "Point A is at (46, 17). Point B is at (46, 17). What is the spatial relation between Point A and Point B?",
+      "expected": "Equals",
+      "actual": "Equals",
+      "success": true,
+      "correct": true
+    },
+    {
+      "index": 4,
+      "input": "Point A is at (-43, 54). Point B is at (63, 99). What is the spatial relation between Point A and Point B?",
+      "expected": "Disjoint",
+      "actual": "Disjoint",
+      "success": true,
+      "correct": true
+    },
+    {
+      "index": 5,
+      "input": "Point A is at (-57, -90). Point B is at (-57, -90). What is the spatial relation between Point A and Point B?",
+      "expected": "Equals",
+      "actual": "Equals",
+      "success": true,
+      "correct": true
+    },
+    {
+      "index": 6,
+      "input": "Point A is at (-56, 58). Point B is at (-56, 58). What is the spatial relation between Point A and Point B?",
+      "expected": "Equals",
+      "actual": "Equals",
+      "success": true,
+      "correct": true
+    },
+    {
+      "index": 7,
+      "input": "Point A is at (36, -33). Point B is at (-80, -32). What is the spatial relation between Point A and Point B?",
+      "expected": "Disjoint",
+      "actual": "Disjoint",
+      "success": true,
+      "correct": true
+    },
+    {
+      "index": 8,
+      "input": "Point A is at (44, -35). Point B is at (44, -35). What is the spatial relation between Point A and Point B?",
+      "expected": "Equals",
+      "actual": "Equals",
+      "success": true,
+      "correct": true
+    },
+    {
+      "index": 9,
+      "input": "Point A is at (69, -89). Point B is at (69, -89). What is the spatial relation between Point A and Point B?",
+      "expected": "Equals",
+      "actual": "Equals",
+      "success": true,
+      "correct": true
+    },
+    {
+      "index": 10,
+      "input": "Point A is at (74, -37). Point B is at (74, -37). What is the spatial relation between Point A and Point B?",
+      "expected": "Equals",
+      "actual": "Equals",
+      "success": true,
+      "correct": true
+    },
+    {
+      "index": 11,
+      "input": "Point A is at (63, 85). Point B is at (-63, -41). What is the spatial relation between Point A and Point B?",
+      "expected": "Disjoint",
+      "actual": "Disjoint",
+      "success": true,
+      "correct": true
+    },
+    {
+      "index": 12,
+      "input": "Point A is at (14, -38). Point B is at (-4, -14). What is the spatial relation between Point A and Point B?",
+      "expected": "Disjoint",
+      "actual": "Disjoint",
+      "success": true,
+      "correct": true
+    },
+    {
+      "index": 13,
+      "input": "Point A is at (48, 51). Point B is at (48, 51). What is the spatial relation between Point A and Point B?",
+      "expected": "Equals",
+      "actual": "Equals",
+      "success": true,
+      "correct": true
+    },
+    {
+      "index": 14,
+      "input": "Point A is at (-66, 94). Point B is at (-99, -70). What is the spatial relation between Point A and Point B?",
+      "expected": "Disjoint",
+      "actual": "Disjoint",
+      "success": true,
+      "correct": true
+    },
+    {
+      "index": 15,
+      "input": "Point A is at (-91, 71). Point B is at (-72, 7). What is the spatial relation between Point A and Point B?",
+      "expected": "Disjoint",
+      "actual": "Disjoint",
+      "success": true,
+      "correct": true
+    },
+    {
+      "index": 16,
+      "input": "Point A is at (-82, -2). Point B is at (-82, -2). What is the spatial relation between Point A and Point B?",
+      "expected": "Equals",
+      "actual": "Equals",
+      "success": true,
+      "correct": true
+    },
+    {
+      "index": 17,
+      "input": "Point A is at (-76, 87). Point B is at (-76, 87). What is the spatial relation between Point A and Point B?",
+      "expected": "Equals",
+      "actual": "Equals",
+      "success": true,
+      "correct": true
+    },
+    {
+      "index": 18,
+      "input": "Point A is at (-67, -3). Point B is at (-67, -3). What is the spatial relation between Point A and Point B?",
+      "expected": "Equals",
+      "actual": "Equals",
+      "success": true,
+      "correct": true
+    },
+    {
+      "index": 19,
+      "input": "Point A is at (-66, 33). Point B is at (-66, 33). What is the spatial relation between Point A and Point B?",
+      "expected": "Equals",
+      "actual": "Equals",
+      "success": true,
+      "correct": true
+    }
+  ],
+  "accuracy": 1.0
+}

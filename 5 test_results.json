@@ -1,0 +1,170 @@
+{
+  "total": 20,
+  "successful": 20,
+  "failed": 0,
+  "correct": 20,
+  "incorrect": 0,
+  "details": [
+    {
+      "index": 0,
+      "input": "Given line L with endpoints [(-28.7, -15.1), (-28.7, -18.6)] and polygon P with vertices [(-41.2, -15.1), (-24.7, -15.1), (-24.7, 1.4), (-41.2, 1.4)], determine their spatial relation.",
+      "expected": "Touches",
+      "actual": "Touches",
+      "success": true,
+      "correct": true
+    },
+    {
+      "index": 1,
+      "input": "Given line L with endpoints [(-16.9, -39.5), (-14.6, -42.3)] and polygon P with vertices [(-29.4, -49.2), (-12.6, -49.2), (-12.6, -32.4), (-29.4, -32.4)], determine their spatial relation.",
+      "expected": "Within",
+      "actual": "Within",
+      "success": true,
+      "correct": true
+    },
+    {
+      "index": 2,
+      "input": "Given line L with endpoints [(-44.7, -21.0), (-36.8, -30.5)] and polygon P with vertices [(-48.4, -37.3), (-28.6, -37.3), (-28.6, -17.5), (-48.4, -17.5)], determine their spatial relation.",
+      "expected": "Within",
+      "actual": "Within",
+      "success": true,
+      "correct": true
+    },
+    {
+      "index": 3,
+      "input": "Given line L with endpoints [(-12.6, 11.4), (-13.0, 0.9)] and polygon P with vertices [(-23.2, -0.8), (-6.7, -0.8), (-6.7, 15.7), (-23.2, 15.7)], determine their spatial relation.",
+      "expected": "Within",
+      "actual": "Within",
+      "success": true,
+      "correct": true
+    },
+    {
+      "index": 4,
+      "input": "Given line L with endpoints [(-24.0, 8.0), (-16.7, 7.9)] and polygon P with vertices [(-30.5, -1.0), (-14.0, -1.0), (-14.0, 15.5), (-30.5, 15.5)], determine their spatial relation.",
+      "expected": "Within",
+      "actual": "Within",
+      "success": true,
+      "correct": true
+    },
+    {
+      "index": 5,
+      "input": "Given line L with endpoints [(-3.3, -16.5), (-3.1, -14.8)] and polygon P with vertices [(-13.5, -45.8), (5.1, -45.8), (5.1, -27.2), (-13.5, -27.2)], determine their spatial relation.",
+      "expected": "Disjoint",
+      "actual": "Disjoint",
+      "success": true,
+      "correct": true
+    },
+    {
+      "index": 6,
+      "input": "Given line L with endpoints [(-10.8, -44.5), (-10.8, -48.1)] and polygon P with vertices [(-14.0, -44.5), (2.9, -44.5), (2.9, -27.6), (-14.0, -27.6)], determine their spatial relation.",
+      "expected": "Touches",
+      "actual": "Touches",
+      "success": true,
+      "correct": true
+    },
+    {
+      "index": 7,
+      "input": "Given line L with endpoints [(-13.2, -30.6), (-13.2, -31.8)] and polygon P with vertices [(-17.3, -30.6), (-7.2, -30.6), (-7.2, -20.5), (-17.3, -20.5)], determine their spatial relation.",
+      "expected": "Touches",
+      "actual": "Touches",
+      "success": true,
+      "correct": true
+    },
+    {
+      "index": 8,
+      "input": "Given line L with endpoints [(-15.8, -30.1), (-20.1, -30.1)] and polygon P with vertices [(-15.8, -40.0), (-0.9, -40.0), (-0.9, -25.1), (-15.8, -25.1)], determine their spatial relation.",
+      "expected": "Touches",
+      "actual": "Touches",
+      "success": true,
+      "correct": true
+    },
+    {
+      "index": 9,
+      "input": "Given line L with endpoints [(2.3, -20.7), (-3.9, -13.2)] and polygon P with vertices [(-13.2, -28.2), (3.4, -28.2), (3.4, -11.6), (-13.2, -11.6)], determine their spatial relation.",
+      "expected": "Within",
+      "actual": "Within",
+      "success": true,
+      "correct": true
+    },
+    {
+      "index": 10,
+      "input": "Given line L with endpoints [(-22.7, -38.2), (30.6, -38.2)] and polygon P with vertices [(-2.7, -43.2), (10.6, -43.2), (10.6, -29.9), (-2.7, -29.9)], determine their spatial relation.",
+      "expected": "Crosses",
+      "actual": "Crosses",
+      "success": true,
+      "correct": true
+    },
+    {
+      "index": 11,
+      "input": "Given line L with endpoints [(-2.5, -8.1), (-4.6, -5.8)] and polygon P with vertices [(-9.2, -37.3), (3.2, -37.3), (3.2, -24.9), (-9.2, -24.9)], determine their spatial relation.",
+      "expected": "Disjoint",
+      "actual": "Disjoint",
+      "success": true,
+      "correct": true
+    },
+    {
+      "index": 12,
+      "input": "Given line L with endpoints [(-43.5, -38.5), (14.9, -38.5)] and polygon P with vertices [(-21.6, -45.1), (-7.0, -45.1), (-7.0, -30.5), (-21.6, -30.5)], determine their spatial relation.",
+      "expected": "Crosses",
+      "actual": "Crosses",
+      "success": true,
+      "correct": true
+    },
+    {
+      "index": 13,
+      "input": "Given line L with endpoints [(-15.1, -9.1), (-13.5, -8.7)] and polygon P with vertices [(-22.4, -19.3), (-6.3, -19.3), (-6.3, -3.2), (-22.4, -3.2)], determine their spatial relation.",
+      "expected": "Within",
+      "actual": "Within",
+      "success": true,
+      "correct": true
+    },
+    {
+      "index": 14,
+      "input": "Given line L with endpoints [(-8.4, -12.1), (-10.3, -12.1)] and polygon P with vertices [(-8.4, -23.1), (7.9, -23.1), (7.9, -6.8), (-8.4, -6.8)], determine their spatial relation.",
+      "expected": "Touches",
+      "actual": "Touches",
+      "success": true,
+      "correct": true
+    },
+    {
+      "index": 15,
+      "input": "Given line L with endpoints [(-60.5, 0.0), (-10.1, 0.0)] and polygon P with vertices [(-41.6, -7.7), (-29.0, -7.7), (-29.0, 4.9), (-41.6, 4.9)], determine their spatial relation.",
+      "expected": "Crosses",
+      "actual": "Crosses",
+      "success": true,
+      "correct": true
+    },
+    {
+      "index": 16,
+      "input": "Given line L with endpoints [(-24.2, -28.1), (23.0, -28.1)] and polygon P with vertices [(-6.5, -31.3), (5.3, -31.3), (5.3, -19.5), (-6.5, -19.5)], determine their spatial relation.",
+      "expected": "Crosses",
+      "actual": "Crosses",
+      "success": true,
+      "correct": true
+    },
+    {
+      "index": 17,
+      "input": "Given line L with endpoints [(-39.5, -9.2), (-38.0, 0.1)] and polygon P with vertices [(-42.8, -10.5), (-30.5, -10.5), (-30.5, 1.8), (-42.8, 1.8)], determine their spatial relation.",
+      "expected": "Within",
+      "actual": "Within",
+      "success": true,
+      "correct": true
+    },
+    {
+      "index": 18,
+      "input": "Given line L with endpoints [(-38.0, -38.6), (-44.1, -35.3)] and polygon P with vertices [(-47.5, -46.5), (-34.1, -46.5), (-34.1, -33.1), (-47.5, -33.1)], determine their spatial relation.",
+      "expected": "Within",
+      "actual": "Within",
+      "success": true,
+      "correct": true
+    },
+    {
+      "index": 19,
+      "input": "Given line L with endpoints [(-29.2, -3.4), (-31.0, -3.4)] and polygon P with vertices [(-29.2, -7.7), (-15.3, -7.7), (-15.3, 6.2), (-29.2, 6.2)], determine their spatial relation.",
+      "expected": "Touches",
+      "actual": "Touches",
+      "success": true,
+      "correct": true
+    }
+  ],
+  "accuracy": 1.0
+}

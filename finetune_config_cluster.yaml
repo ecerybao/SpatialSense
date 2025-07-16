@@ -1,0 +1,108 @@
+# SpatialSense 集群微调配置文件
+# 针对SLURM集群环境优化
+
+model:
+  base_model: "Qwen/Qwen2-7B-Instruct"  # 推荐的7B模型
+  # 备选模型：
+  # - "microsoft/DialoGPT-medium"  # 较小模型，显存不足时使用
+  # - "THUDM/chatglm3-6b"         # 中文友好
+  # - "baichuan-inc/Baichuan2-7B-Chat"  # 另一个7B选择
+
+training:
+  # 数据路径
+  train_file: "finetune_data/train.jsonl"
+  validation_file: "finetune_data/val.jsonl"
+  
+  # 训练轮数和批次设置（针对单GPU优化）
+  num_train_epochs: 3
+  per_device_train_batch_size: 4      # 适中的batch size
+  per_device_eval_batch_size: 4
+  gradient_accumulation_steps: 4      # 等效batch_size = 4*4 = 16
+  
+  # 学习率设置
+  learning_rate: 2e-5
+  warmup_steps: 100
+  warmup_ratio: 0.1                   # 10%的步数用于warmup
+  
+  # 优化器配置
+  optim: "adamw_torch"
+  weight_decay: 0.01
+  adam_beta1: 0.9
+  adam_beta2: 0.999
+  
+  # 保存和评估策略
+  save_steps: 500                     # 每500步保存一次
+  eval_steps: 500                     # 每500步评估一次
+  save_total_limit: 3                 # 最多保留3个检查点
+  
+  # 日志配置
+  logging_steps: 50                   # 更频繁的日志记录
+  logging_first_step: true
+  report_to: "tensorboard"
+  
+  # 输出设置
+  output_dir: "spatial_reasoning_model"
+  overwrite_output_dir: true
+  
+  # 性能优化（针对集群环境）
+  remove_unused_columns: false
+  dataloader_pin_memory: true         # 启用内存锁定加速
+  dataloader_num_workers: 4           # 利用多核CPU
+  bf16: true                          # 混合精度训练
+  gradient_checkpointing: true        # 节省显存
+  
+  # 早停设置
+  load_best_model_at_end: true
+  metric_for_best_model: "eval_loss"
+  greater_is_better: false
+  evaluation_strategy: "steps"
+  
+  # 集群特定设置
+  max_steps: -1                       # 让训练完整运行
+  save_safetensors: true              # 使用更安全的保存格式
+  push_to_hub: false                  # 不推送到HuggingFace Hub
+  resume_from_checkpoint: null        # 如需恢复训练，设置检查点路径
+
+# LoRA配置（参数高效微调）
+lora:
+  r: 16                               # LoRA rank，平衡性能和参数量
+  lora_alpha: 32                      # LoRA scaling参数
+  target_modules: 
+    - "q_proj"                        # Query投影层
+    - "v_proj"                        # Value投影层
+    - "k_proj"                        # Key投影层
+    - "o_proj"                        # Output投影层
+    - "gate_proj"                     # Gate投影层（Qwen2特有）
+    - "up_proj"                       # Up投影层
+    - "down_proj"                     # Down投影层
+  lora_dropout: 0.05                  # LoRA dropout率
+  bias: "none"                        # 不训练bias参数
+  task_type: "CAUSAL_LM"              # 因果语言模型任务
+
+# 数据格式配置
+data_format:
+  type: "chatml"                      # 聊天格式类型
+  max_length: 2048                    # 最大序列长度
+  truncation: true                    # 启用截断
+  padding: false                      # 动态padding（由DataCollator处理）
+  
+# 集群资源配置
+cluster:
+  # 这些参数在SLURM脚本中已设置，这里记录用于参考
+  gpu_count: 1                        # 单GPU训练
+  cpu_count: 8                        # 8核CPU
+  memory: "32GB"                      # 32GB内存
+  max_time: "12:00:00"               # 最大运行时间12小时
+
+# 监控和调试
+monitoring:
+  log_level: "INFO"
+  log_on_each_node: false
+  disable_tqdm: false                 # 保持进度条显示
+  
+# 环境配置
+environment:
+  cuda_version: "12.4"
+  pytorch_version: ">=2.0.0"
+  transformers_version: ">=4.35.0"
+  peft_version: ">=0.6.0"
