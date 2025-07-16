@@ -15,13 +15,13 @@ training:
   
   # 训练轮数和批次设置（针对单GPU优化）
   num_train_epochs: 3
-  per_device_train_batch_size: 4      # 适中的batch size
-  per_device_eval_batch_size: 4
-  gradient_accumulation_steps: 4      # 等效batch_size = 4*4 = 16
+  per_device_train_batch_size: 1      # 降低batch size避免梯度问题
+  per_device_eval_batch_size: 1
+  gradient_accumulation_steps: 16     # 增加梯度累积保持有效batch size
   
   # 学习率设置
-  learning_rate: 0.00002
-  warmup_steps: 100
+  learning_rate: 0.0001               # 稍微提高学习率
+  warmup_steps: 50                    # 减少warmup步数
   warmup_ratio: 0.1                   # 10%的步数用于warmup
   
   # 优化器配置
@@ -31,12 +31,12 @@ training:
   adam_beta2: 0.999
   
   # 保存和评估策略
-  save_steps: 500                     # 每500步保存一次
-  eval_steps: 500                     # 每500步评估一次
+  save_steps: 100                     # 更频繁保存
+  eval_steps: 100                     # 更频繁评估
   save_total_limit: 3                 # 最多保留3个检查点
   
   # 日志配置
-  logging_steps: 50                   # 更频繁的日志记录
+  logging_steps: 10                   # 更频繁的日志记录
   logging_first_step: true
   report_to: "tensorboard"
   
@@ -46,16 +46,16 @@ training:
   
   # 性能优化（针对集群环境）
   remove_unused_columns: false
-  dataloader_pin_memory: true         # 启用内存锁定加速
-  dataloader_num_workers: 4           # 利用多核CPU
+  dataloader_pin_memory: false       # 禁用内存锁定避免问题
+  dataloader_num_workers: 2           # 减少工作进程
   bf16: true                          # 混合精度训练
-  gradient_checkpointing: true        # 节省显存
+  gradient_checkpointing: false       # 禁用梯度检查点避免冲突
   
   # 早停设置
   load_best_model_at_end: true
   metric_for_best_model: "eval_loss"
   greater_is_better: false
-  evaluation_strategy: "steps"
+  eval_strategy: "steps"
   
   # 集群特定设置
   max_steps: -1                       # 让训练完整运行
@@ -65,24 +65,21 @@ training:
 
 # LoRA配置（参数高效微调）
 lora:
-  r: 16                               # LoRA rank，平衡性能和参数量
-  lora_alpha: 32                      # LoRA scaling参数
+  r: 8                                # 降低LoRA rank避免梯度问题
+  lora_alpha: 16                      # 降低LoRA scaling参数
   target_modules: 
     - "q_proj"                        # Query投影层
     - "v_proj"                        # Value投影层
     - "k_proj"                        # Key投影层
     - "o_proj"                        # Output投影层
-    - "gate_proj"                     # Gate投影层（Qwen2特有）
-    - "up_proj"                       # Up投影层
-    - "down_proj"                     # Down投影层
-  lora_dropout: 0.05                  # LoRA dropout率
+  lora_dropout: 0.1                   # 增加LoRA dropout率
   bias: "none"                        # 不训练bias参数
   task_type: "CAUSAL_LM"              # 因果语言模型任务
 
 # 数据格式配置
 data_format:
   type: "chatml"                      # 聊天格式类型
-  max_length: 2048                    # 最大序列长度
+  max_length: 1024                    # 降低序列长度减少内存使用
   truncation: true                    # 启用截断
   padding: false                      # 动态padding（由DataCollator处理）
   

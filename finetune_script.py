@@ -106,9 +106,11 @@ def prepare_dataset(data: list, tokenizer) -> Dataset:
             return_tensors=None
         )
         
+        # 对于因果语言模型，labels应该与input_ids相同
         formatted_data.append({
             "input_ids": encoded["input_ids"],
-            "attention_mask": encoded["attention_mask"]
+            "attention_mask": encoded["attention_mask"],
+            "labels": encoded["input_ids"].copy()  # 添加labels
         })
     
     return Dataset.from_list(formatted_data)
@@ -168,6 +170,30 @@ def main():
     model = get_peft_model(model, lora_config)
     model.print_trainable_parameters()
     
+    # 确保模型参数需要梯度
+    model.train()
+    
+    # 检查可训练参数
+    trainable_params = 0
+    all_params = 0
+    for name, param in model.named_parameters():
+        all_params += param.numel()
+        if param.requires_grad:
+            trainable_params += param.numel()
+            print(f"Trainable: {name}")
+    
+    print(f"Total parameters: {all_params}")
+    print(f"Trainable parameters: {trainable_params}")
+    print(f"Trainable ratio: {trainable_params/all_params:.4f}")
+    
+    # 如果没有可训练参数，强制启用LoRA层
+    if trainable_params == 0:
+        print("Warning: No trainable parameters found. Enabling LoRA layers...")
+        for name, param in model.named_parameters():
+            if 'lora' in name.lower():
+                param.requires_grad = True
+                print(f"Enabled: {name}")
+    
     # Data collator
     data_collator = DataCollatorForLanguageModeling(
         tokenizer=tokenizer,
@@ -193,7 +219,7 @@ def main():
         remove_unused_columns=config["training"]["remove_unused_columns"],
         dataloader_pin_memory=config["training"]["dataloader_pin_memory"],
         bf16=config["training"]["bf16"],
-        gradient_checkpointing=config["training"]["gradient_checkpointing"],
+        gradient_checkpointing=False,  # 暂时禁用梯度检查点
         eval_strategy="steps",
         load_best_model_at_end=True,
         metric_for_best_model="eval_loss",
