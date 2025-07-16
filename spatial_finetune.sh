@@ -16,7 +16,7 @@ echo "Working directory: $(pwd)"
 echo "Start time: $(date)"
 
 # 设置工作目录
-cd /path/to/your/SpatialSense  # 修改为你的实际路径
+cd /home/rbao5/SpatialSense  # 修改为你的实际路径
 
 # 激活虚拟环境
 source venv/bin/activate
